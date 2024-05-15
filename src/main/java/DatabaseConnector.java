@@ -9,11 +9,11 @@ import java.sql.Statement;
 
 public class DatabaseConnector implements ServletContextListener {
 
-    private final String host = System.getProperty("PGHOST");
-    private final String port = System.getProperty("PGPORT");
-    private final String userName = System.getProperty("POSTGRES_USER");
-    private final String name = System.getProperty("PGDATABASE");
-    private final String password = System.getProperty("POSTGRES_PASSWORD");
+    private final String host = "localhost";
+    private final String port = "5432";
+    private final String userName = "admin";
+    private final String name = "QnA";
+    private final String password = "password";
     public void contextInitialized(ServletContextEvent event) {
         try {
             String url = "jdbc:postgresql://" + host+ ":" + port + "/" + name;
