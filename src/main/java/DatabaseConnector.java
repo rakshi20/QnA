@@ -1,24 +1,22 @@
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletContextEvent;
 import jakarta.servlet.ServletContextListener;
-import org.yaml.snakeyaml.Yaml;
 
-import java.io.FileReader;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.HashMap;
-import java.util.Map;
 
 public class DatabaseConnector implements ServletContextListener {
 
     private String host, userName, dbname, password;;
     private Integer port;
     public void contextInitialized(ServletContextEvent event) {
-        Yaml yaml = new Yaml();
         try {
-            HashMap mp = yaml.loadAs(new FileReader("D:\\Intellij Projects\\QnA\\src\\main\\resources\\config.yaml"), Map.class);
+            ObjectMapper objectMapper = new ObjectMapper(new YAMLFactory());
+            HashMap mp = objectMapper.readValue(new URL("file:D:\\Intellij Projects\\QnA\\src\\main\\resources\\config.yaml"), HashMap.class);
             setDBdata(mp);
         }
         catch (Exception e) {
