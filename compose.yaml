@@ -1,0 +1,75 @@
+# Comments are provided throughout this file to help you get started.
+# If you need more help, visit the Docker Compose reference guide at
+# https://docs.docker.com/go/compose-spec-reference/
+
+# Here the instructions define your application as a service called "server".
+# This service is built from the Dockerfile in the current directory.
+# You can add other services your application may depend on here, such as a
+# database or a cache. For examples, see the Awesome Compose repository:
+# https://github.com/docker/awesome-compose
+services:
+  server:
+    build:
+      context: .
+    ports:
+      - 8080:8080
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: always
+    environment:
+      - pgUrl=jdbc:postgresql://db:5432/qna
+      - userName=admin
+      - password=password
+      - TOMCAT_USERNAME=tomcatAdmin
+      - TOMCAT_PASSWORD=password
+    volumes:
+      - tomcatVolume:/usr/local/tomcat
+  db:
+     image: postgres
+     restart: always
+     user: postgres
+     volumes:
+       - pgVolume:/var/lib/postgresql/data
+     environment:
+       - POSTGRES_DB=qna
+       - POSTGRES_USER=admin
+       - POSTGRES_PASSWORD=password
+     ports:
+       - 5432:5432
+     healthcheck:
+       test: [ "CMD", "pg_isready" ]
+       interval: 10s
+       timeout: 5s
+       retries: 5
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: always
+    user: pgadmin
+    volumes:
+      - pgAdminVolume:/var/lib/pgadmin
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@email.com
+      - PGADMIN_DEFAULT_PASSWORD=password
+    ports:
+      - 81:80
+#  tomcat:
+#    image: tomcat
+#    restart: always
+#    environment:
+#      - TOMCAT_USERNAME=tomcatAdmin
+#      - TOMCAT_PASSWORD=password
+#    volumes:
+#      - tomcatVolume:/usr/local/tomcat
+#    ports:
+#      - 8081:8080
+volumes:
+  pgVolume:
+  pgAdminVolume:
+  tomcatVolume:
+
+#volumes:
+#  pgVolume:
+#    external:
+#      true
+

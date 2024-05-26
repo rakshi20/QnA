@@ -45,6 +45,15 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-war-plugin</artifactId>
         <version>3.3.1</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>
+                war
+              </goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -54,6 +63,15 @@
           <source>11</source>
           <target>11</target>
         </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>
+                compile
+              </goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>

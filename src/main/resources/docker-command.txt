@@ -1,0 +1,32 @@
+
+docker run -d -p 5432:5432 --name postgresContainer --network postgres-network -e POSTGRES_PASSWORD=password -e POSTGRES_USER=admin postgres
+
+-v pgvolume:/var/lib/postgresql/data
+
+
+
+docker run -p 82:80 --name pgadminNew --network postgres-network -e PGADMIN_DEFAULT_EMAIL=admin@email.com -e PGADMIN_DEFAULT_PASSWORD=password -d dpage/pgadmin4
+
+-v pgadminvolume:/var/lib/pgadmin
+
+
+docker run -d -p 8080:8080 --name tomcatContainer --network postgres-network -v tomcat-volume:/usr/local/tomcat tomcat
+
+Build Image
+docker build -t qna:v1.0 .
+
+
+$ docker cp a0af60c72d93:/ ./test
+
+docker compose up -d --build
+
+docker compose down
+
+docker exec -it {containerName/ID} /bin/bash
+
+
+edit conf/tomcat-users.xml for roles
+
+In webapps/manager/META-INF/context.xml, allow = ".*"
+
+put jar inside tomcat/webapps/

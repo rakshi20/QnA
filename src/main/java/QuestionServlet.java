@@ -21,6 +21,6 @@ public class QuestionServlet extends HttpServlet {
         response.setContentType("text/html");
         out = response.getWriter();
         ctx = getServletContext();
-        PrintDataServlet.printResult(out, PrintDataServlet.query((Connection) ctx.getAttribute("dbCon"), "select quesn from public.question"));
+        PrintDataServlet.printResult(out, PrintDataServlet.query((Connection) ctx.getAttribute("dbCon"), "select qn from public.question"));
     }
 }

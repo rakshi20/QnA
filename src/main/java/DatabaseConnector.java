@@ -14,19 +14,20 @@ public class DatabaseConnector implements ServletContextListener {
     private String host, userName, dbname, password;;
     private Integer port;
     public void contextInitialized(ServletContextEvent event) {
+//        try {
+//            ObjectMapper objectMapper = new ObjectMapper(new YAMLFactory());
+//            HashMap mp = objectMapper.readValue(new URL("file:D:\\Intellij Projects\\QnA\\src\\main\\resources\\config.yaml"), HashMap.class);
+//            setDBdata(mp);
+//        }
+//        catch (Exception e) {
+//            System.out.println("Config issue.");
+//            e.printStackTrace();
+//        }
         try {
-            ObjectMapper objectMapper = new ObjectMapper(new YAMLFactory());
-            HashMap mp = objectMapper.readValue(new URL("file:D:\\Intellij Projects\\QnA\\src\\main\\resources\\config.yaml"), HashMap.class);
-            setDBdata(mp);
-        }
-        catch (Exception e) {
-            System.out.println("Config issue.");
-            e.printStackTrace();
-        }
-        try {
-            String url = "jdbc:postgresql://" + host+ ":" + port + "/" + dbname;
-            String userName = this.userName;
-            String password = this.password;
+            //String url = "jdbc:postgresql://" + host+ ":" + port + "/" + dbname;
+            String url = System.getenv("pgUrl");
+            String userName = System.getenv("userName");
+            String password = System.getenv("password");
 
             Class.forName("org.postgresql.Driver");
 
