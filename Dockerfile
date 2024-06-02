@@ -161,7 +161,7 @@ COPY ./tomcatWarSetup.sh ./
 
 #RUN chmod 777 tomcatWarSetup.sh
 
-#CMD ["./tomcatWarSetup.sh"]
+CMD ["./tomcatWarSetup.sh"]
 #CMD ["cp", "tomcat_jar/QnA.war", "tomcat/webapps/"]
 
 #/usr/local/tomcatWarSetup.sh

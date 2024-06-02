@@ -2,8 +2,13 @@
 
 cp tomcat_jar/QnA.war tomcat/webapps/
 
-#tomcat/bin/startup.sh
+#Run tomcat in foreground
+tomcat/bin/catalina.sh run
 
-/bin/bash
+#tomcat/bin/catalina.sh stop
+
+#tomcat/bin/catalina.sh start
+
+#/bin/bash
 
 #while true; do sleep 1; done

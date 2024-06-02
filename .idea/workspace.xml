@@ -11,9 +11,8 @@
   <component name="ChangeListManager">
     <list default="true" id="80f3cbc9-220e-4b98-879f-b6b9467cb434" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DatabaseConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DatabaseConnector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/QuestionServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/QuestionServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tomcatWarSetup.sh" beforeDir="false" afterPath="$PROJECT_DIR$/tomcatWarSetup.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,6 +183,7 @@
       <workItem from="1716530959337" duration="3257000" />
       <workItem from="1716580771439" duration="2055000" />
       <workItem from="1716627197057" duration="28745000" />
+      <workItem from="1717324820936" duration="11057000" />
     </task>
     <task id="LOCAL-00001" summary="create jar">
       <option name="closed" value="true" />
